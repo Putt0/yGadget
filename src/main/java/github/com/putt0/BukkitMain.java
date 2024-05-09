@@ -1,5 +1,8 @@
 package github.com.putt0;
 
+import github.com.putt0.listener.ServerListeners;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class BukkitMain extends JavaPlugin {
@@ -19,6 +22,17 @@ public class BukkitMain extends JavaPlugin {
 
         try {
             System.out.print("[yGadget] -> Iniciado!");
+        } catch (Exception exception) {
+            System.out.print("[yGadget] -> Ocorreu um erro ao inicializar: (" + exception + ")");
+        }
+    }
+
+    protected void onEnableListenerService() {
+
+        PluginManager pluginManager = Bukkit.getPluginManager();
+
+        try {
+            pluginManager.registerEvents(new ServerListeners(), this);
         } catch (Exception exception) {
             System.out.print("[yGadget] -> Ocorreu um erro ao inicializar: (" + exception + ")");
         }
