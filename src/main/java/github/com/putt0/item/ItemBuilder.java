@@ -1,6 +1,5 @@
 package github.com.putt0.item;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -11,12 +10,12 @@ import org.bukkit.inventory.meta.SkullMeta;
 @SuppressWarnings("all") // Removendo avisos desnecessários!
 public class ItemBuilder {
 
-    public ItemStack newItem(Material material, String name, String[] description, int quantity, byte bt) {
+    public ItemStack newItem(Material material, String name, List<String> description, int quantity, byte bt) {
         ItemStack itemStack = new ItemStack(material, quantity, bt);
 
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(name);
-        itemMeta.setLore(Arrays.asList(description));
+        itemMeta.setLore(description);
 
         itemStack.setItemMeta(itemMeta);
         return itemStack;
