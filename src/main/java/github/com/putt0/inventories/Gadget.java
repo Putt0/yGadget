@@ -1,6 +1,5 @@
 package github.com.putt0.inventories;
 
-import github.com.putt0.BukkitLoader;
 import github.com.putt0.manager.Gadgets;
 import github.com.putt0.item.ItemBuilder;
 import org.bukkit.Bukkit;
@@ -12,14 +11,15 @@ public class Gadget {
     public static void inventoryGadgetMain(Player player) {
         Inventory inventory = Bukkit.createInventory(player, 3 * 9, "§8Gadget's disponíveis.");
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(BukkitLoader.getPlugin(), () -> {
+        int slot = 10;
 
-            for (Gadgets gadgets : Gadgets.values()) {
+        for (Gadgets gadgets : Gadgets.values()) {
 
-                inventory.setItem(10, new ItemBuilder().newHeadSkull("§a" + gadgets.getType(), player.getName(),
-                        new String[] {gadgets.getDescription()}));
-            }
-        }, 0, 20);
+            inventory.setItem(slot, new ItemBuilder().newHeadSkull("§a" + gadgets.getType(), player.getName(),
+                    gadgets.getDescription()));
+
+            slot++;
+        }
         player.openInventory(inventory);
     }
 }
