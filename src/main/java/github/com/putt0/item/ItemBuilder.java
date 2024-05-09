@@ -1,6 +1,8 @@
 package github.com.putt0.item;
 
 import java.util.Arrays;
+import java.util.List;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -20,7 +22,7 @@ public class ItemBuilder {
         return itemStack;
     }
 
-    public ItemStack newHeadSkull(String name, String nickname, String[] description) {
+    public ItemStack newHeadSkull(String name, String nickname, List<String> description) {
         ItemStack itemStack = new ItemStack(Material.getMaterial(397));
         SkullMeta skullMeta = (SkullMeta) itemStack.getItemMeta();
 
@@ -29,7 +31,7 @@ public class ItemBuilder {
         skullMeta.hasOwner();
         skullMeta.setOwner(nickname);
         skullMeta.setDisplayName(name);
-        skullMeta.setLore(Arrays.asList(description));
+        skullMeta.setLore(description);
 
         itemStack.setItemMeta(skullMeta);
         return itemStack;
