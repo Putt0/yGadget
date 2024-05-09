@@ -1,0 +1,6 @@
+name: yGadget
+version: 1.0
+main: github.com.putt0.BukkitLoader
+authors:
+  - Reinaldy Oliveira
+website: https://github.com/Putt0/yGadget
