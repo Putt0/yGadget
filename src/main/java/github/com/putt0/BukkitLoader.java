@@ -9,4 +9,19 @@ public class BukkitLoader extends BukkitMain {
     public static Plugin getPlugin() {
         return plugin;
     }
+
+    @Override
+    public void onLoad() {
+        onLoadService();
+    }
+
+    @Override
+    public void onEnable() {
+        onEnableService();
+    }
+
+    @Override
+    public void onDisable() {
+        onDisableService();
+    }
 }
