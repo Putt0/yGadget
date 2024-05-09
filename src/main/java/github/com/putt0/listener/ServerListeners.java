@@ -1,6 +1,8 @@
 package github.com.putt0.listener;
 
+import github.com.putt0.item.ItemBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,6 +25,9 @@ public class ServerListeners implements Listener {
         event.setJoinMessage(null);
 
         Player player = event.getPlayer();
+
+        player.getInventory().setItem(4, new ItemBuilder().newItem(Material.CHEST, "§aGadget's", new String[]
+                {}, 1,(byte) 0));
 
         Bukkit.getOnlinePlayers().forEach(players -> {
 
